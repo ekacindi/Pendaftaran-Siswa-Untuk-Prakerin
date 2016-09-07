@@ -5,11 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     EditText etNama;
     Button bOK;
+    Spinner spKelas;
     TextView tvHasil;
 
     @Override
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         etNama = (EditText) findViewById(R.id.editTextNama);
         bOK = (Button) findViewById(R.id.buttonOK);
+        spKelas = (Spinner) findViewById(R.id.spinnerKelas);
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
 
         bOK.setOnClickListener(new View.OnClickListener() {
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private void doProcess() {
         if (isValid()) {
             String nama = etNama.getText().toString();
-            tvHasil.setText("Nama : " + nama);
+            tvHasil.setText("Nama   : " + nama + "\n" + "Kelas   : " + spKelas.getSelectedItem().toString());
         }
     }
 
