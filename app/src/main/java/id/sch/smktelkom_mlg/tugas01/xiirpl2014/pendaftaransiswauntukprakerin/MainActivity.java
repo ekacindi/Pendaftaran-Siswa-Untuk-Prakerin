@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -12,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etNama;
     Button bOK;
     Spinner spKelas;
+    RadioButton rbLK, rbPR;
     TextView tvHasil;
 
     @Override
@@ -22,20 +24,31 @@ public class MainActivity extends AppCompatActivity {
         etNama = (EditText) findViewById(R.id.editTextNama);
         bOK = (Button) findViewById(R.id.buttonOK);
         spKelas = (Spinner) findViewById(R.id.spinnerKelas);
+        rbLK = (RadioButton) findViewById(R.id.radioButtonLK);
+        rbPR = (RadioButton) findViewById(R.id.radioButtonPR);
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
 
         bOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                doProcess();
+                doClick();
             }
         });
     }
 
-    private void doProcess() {
+    private void doClick() {
+        String hasil = null;
+
+        if (rbLK.isChecked()) {
+            hasil = rbLK.getText().toString();
+        } else if (rbPR.isChecked()) {
+            hasil = rbPR.getText().toString();
+        }
+
         if (isValid()) {
             String nama = etNama.getText().toString();
-            tvHasil.setText("Nama   : " + nama + "\n" + "Kelas   : " + spKelas.getSelectedItem().toString());
+            tvHasil.setText("Nama : " + nama + "\n" + "Kelas : " + spKelas.getSelectedItem().toString() + "\n"
+                    + "Jenis Kelamin : " + hasil);
         }
     }
 
