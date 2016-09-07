@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     EditText etNama;
     Button bOK;
-    Spinner spKelas;
+    Spinner spKelas, spWil;
     RadioButton rbLK, rbPR;
     TextView tvHasil;
 
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         spKelas = (Spinner) findViewById(R.id.spinnerKelas);
         rbLK = (RadioButton) findViewById(R.id.radioButtonLK);
         rbPR = (RadioButton) findViewById(R.id.radioButtonPR);
+        spWil = (Spinner) findViewById(R.id.spinnerWil);
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
 
         bOK.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         if (isValid()) {
             String nama = etNama.getText().toString();
             tvHasil.setText("Nama : " + nama + "\n" + "Kelas : " + spKelas.getSelectedItem().toString() + "\n"
-                    + "Jenis Kelamin : " + hasil);
+                    + "Jenis Kelamin : " + hasil + "\n" + "Wilayah yang dipilih : " + spWil.getSelectedItem().toString());
         }
     }
 
