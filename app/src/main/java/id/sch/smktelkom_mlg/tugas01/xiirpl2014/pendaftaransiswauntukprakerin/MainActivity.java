@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             hasil = rbPR.getText().toString();
         }
 
-        String hasil2 = "\nHal yang dikuasai :\n";
+        String hasil2 = "\nHal yang dikuasai     :\n";
         int startlen = hasil2.length();
         if (cbFE.isChecked()) hasil2 += cbFE.getText() + "\n";
         if (cbBE.isChecked()) hasil2 += cbBE.getText() + "\n";
@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (isValid()) {
             String nama = etNama.getText().toString();
-            tvHasil.setText("Nama : " + nama + "\n" + "Kelas : " + spKelas.getSelectedItem().toString() + "\n"
-                    + "Jenis Kelamin : " + hasil + "\n" + "Wilayah yang dipilih : " + spWil.getSelectedItem().toString() + hasil2);
+            tvHasil.setText("Nama                         : " + nama + "\n" + "Kelas                         : " + spKelas.getSelectedItem().toString() + "\n"
+                    + "Jenis Kelamin           : " + hasil + "\n" + "Wilayah yang dipilih : " + spWil.getSelectedItem().toString() + hasil2);
         }
     }
 

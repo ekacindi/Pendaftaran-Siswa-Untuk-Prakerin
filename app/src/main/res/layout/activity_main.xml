@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -23,15 +22,18 @@
             android:layout_gravity="center_horizontal"
             android:src="@drawable/logo" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nama" />
-
-        <EditText
-            android:id="@+id/editTextNama"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editTextNama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama" />
+
+        </android.support.design.widget.TextInputLayout>
+
 
         <TextView
             android:id="@+id/textView"
@@ -113,14 +115,20 @@
 
         <Button
             android:id="@+id/buttonOK"
-            android:layout_width="wrap_content"
+            style="@style/Base.TextAppearance.AppCompat.Title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SUBMIT" />
+            android:background="@drawable/bgbtn"
+            android:text="SUBMIT"
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/textViewHasil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="10dp"
+            android:textSize="16dp"
             tools:text="Hasil" />
 
 
