@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -13,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etNama;
     Button bOK;
     Spinner spKelas, spWil;
+    CheckBox cbFE, cbBE, cbAN;
     RadioButton rbLK, rbPR;
     TextView tvHasil;
 
@@ -27,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
         rbLK = (RadioButton) findViewById(R.id.radioButtonLK);
         rbPR = (RadioButton) findViewById(R.id.radioButtonPR);
         spWil = (Spinner) findViewById(R.id.spinnerWil);
+        cbFE = (CheckBox) findViewById(R.id.checkBoxFront);
+        cbBE = (CheckBox) findViewById(R.id.checkBoxBack);
+        cbAN = (CheckBox) findViewById(R.id.checkBoxAnd);
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
 
         bOK.setOnClickListener(new View.OnClickListener() {
@@ -46,10 +51,18 @@ public class MainActivity extends AppCompatActivity {
             hasil = rbPR.getText().toString();
         }
 
+        String hasil2 = "\nHal yang dikuasai :\n";
+        int startlen = hasil2.length();
+        if (cbFE.isChecked()) hasil2 += cbFE.getText() + "\n";
+        if (cbBE.isChecked()) hasil2 += cbBE.getText() + "\n";
+        if (cbAN.isChecked()) hasil2 += cbAN.getText() + "\n";
+
+        if (hasil2.length() == startlen) hasil2 += "Tidak ada yang dikuasai";
+
         if (isValid()) {
             String nama = etNama.getText().toString();
             tvHasil.setText("Nama : " + nama + "\n" + "Kelas : " + spKelas.getSelectedItem().toString() + "\n"
-                    + "Jenis Kelamin : " + hasil + "\n" + "Wilayah yang dipilih : " + spWil.getSelectedItem().toString());
+                    + "Jenis Kelamin : " + hasil + "\n" + "Wilayah yang dipilih : " + spWil.getSelectedItem().toString() + hasil2);
         }
     }
 
